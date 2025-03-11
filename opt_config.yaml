@@ -1,0 +1,58 @@
+optimization:
+  co2_concentrations: [0.036, 0.08, 0.124]  # List of CO2 concentrations to analyze for both plot and table studies
+  
+  # Range parameters for plot study
+  cap_eff_range:
+    start: 85
+    stop: 95
+    num_points: 11
+  
+  he_range:
+    start: 5
+    stop: 15
+    num_points: 11
+  
+  # Fixed constraints for plot study
+  constraints:
+    flue_gas_temp: 35  # FG_temp(C)_i
+    lean_amine_temp: 35  # LA_temp(C)_i
+    absorber_height: 24  # Abs_ht(m)_i
+    min_slad: 0  # Minimum SLAD constraint
+
+  # parameters for table study
+  absorber_heights: [12.0, 24.0]  # Absorber heights
+  flue_gas_temps: [30.0, 50.0]     # Flue gas temperatures
+  lean_amine_temps: [30.0, 40.0]    # Lean amine temperatures
+
+plotting:
+  # Figure settings
+  energy_plots:
+    figure_size: [18, 6]
+    dpi: 500
+    colormap: 'coolwarm'
+    levels: 30
+    font_family: 'Times New Roman'
+    font_size: 14
+    font_weight: 'bold'
+    variables:
+      - 'SRD (MJ/kg CO2)'
+      - 'SCD (MJ/kg CO2)'
+      - 'SLAD (MJ/kg CO2)'
+  
+  operating_plots:
+    figure_size: [18, 6]
+    dpi: 500
+    colormap: 'PuOr'
+    levels: 30
+    font_family: 'Times New Roman'
+    font_size: 14
+    font_weight: 'bold'
+    variables:
+      - 'L/G (kg/kg)'
+      - 'Lean Loading (mol/mol)'
+      - 'Rich Loading (mol/mol)'
+
+paths:
+  data: "data/data-io.csv"
+  model: "training/ml_model"
+  results_dir: "results" 

@@ -1,0 +1,27 @@
+model:
+  name: 'ml_model'
+  layers:
+    - units: 50
+      activation: 'sigmoid'
+    - units: 50
+      activation: 'sigmoid'
+    - units: 50
+      activation: 'sigmoid'
+    - units: 50
+      activation: 'sigmoid'
+    - units: 50
+      activation: 'sigmoid'
+  optimizer: 'adam'
+  loss: 'mse'
+
+training:
+  epochs: 1500
+  validation_split: 0.2
+  early_stopping:
+    patience: 50
+    monitor: 'val_loss'
+    restore_best_weights: true
+
+plotting:
+  figure_size: [10, 8]
+  dpi: 300
